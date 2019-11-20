@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  totalIngresos = 4559;
+  totalGastos = 3478;
+
   constructor() { }
 
   ngOnInit() {

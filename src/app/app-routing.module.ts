@@ -7,7 +7,9 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent
-  }
+  },
+  { path: 'new-movement', loadChildren: () => import('./new-movement/new-movement.module').then(m => m.NewMovementModule) },
+  { path: 'movements', loadChildren: () => import('./movements/movements.module').then(m => m.MovementsModule) }
 ];
 
 @NgModule({

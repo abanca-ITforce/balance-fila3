@@ -1,0 +1,15 @@
+main {
+  font: inherit;
+  padding: 30px;
+}
+
+footer {
+  color: black;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  background: #E7EAE9;
+  padding: 30px;
+  border-top: 1px solid #9da8a2;
+}
