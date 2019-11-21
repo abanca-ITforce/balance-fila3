@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
 import { ShellComponent } from './layout/shell/shell.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -16,7 +17,8 @@ import { ShellComponent } from './layout/shell/shell.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LayoutModule
+    LayoutModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

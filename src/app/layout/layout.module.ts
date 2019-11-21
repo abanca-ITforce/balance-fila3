@@ -7,17 +7,30 @@ import { CopyrightComponent } from './shell/copyright/copyright.component';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from '../home/home/home.component';
 import { HomeModule } from '../home/home.module';
+import { NavShellComponent } from './nav-shell/nav-shell.component';
+import { LayoutModule as MaterialLayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 
 
 
 
 @NgModule({
-  declarations: [ShellComponent, TopBarComponent, MainContentComponent, CopyrightComponent],
+  declarations: [ShellComponent, TopBarComponent, MainContentComponent, CopyrightComponent, NavShellComponent],
   imports: [
     CommonModule,
     RouterModule,
-    HomeModule
+    HomeModule,
+    MaterialLayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
   ],
-  exports: [ShellComponent]
+  exports: [ShellComponent, NavShellComponent]
 })
 export class LayoutModule { }
