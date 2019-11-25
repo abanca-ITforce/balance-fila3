@@ -16,8 +16,9 @@ export class FormMovementComponent {
   });
 
 
-  ingresos = ['Nómina', 'Alquiler', 'Participaciones Bankia'];
-  gastos = ['Comida', 'Gasolina', 'Cursos'];
+  seleccionador: string;
+  entry = ['Nómina', 'Alquiler', 'Participaciones Bankia'];
+  expenditure = ['Comida', 'Gasolina', 'Cursos'];
 
 
   constructor(private formBuilder: FormBuilder) {}
@@ -37,5 +38,13 @@ export class FormMovementComponent {
   hasError(controlName: string, errorName: string) {
     const control = this.movementForm.controls[controlName];
     return control.hasError(errorName);
+  }
+
+  getArray(arrayName: string) {
+    if (arrayName === 'entry') {
+      return this.entry;
+    } else {
+      return this.expenditure;
+    }
   }
 }

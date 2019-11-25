@@ -45,23 +45,12 @@
       <div class="row">
         <div class="col">
             <hr>
-            <div *ngIf="movementForm.get('type').value === 'entry'">
+            <div>
                 <mat-form-field>
-                    <mat-label>Ingreso</mat-label>
+                    <mat-label>{{ movementForm.get('type').value }}</mat-label>
                     <mat-select formControlName="selector">
-                      <mat-option *ngFor="let ingreso of ingresos" [value]="ingreso">
-                        {{ ingreso }}
-                      </mat-option>
-                    </mat-select>
-                  </mat-form-field>
-            </div>
-            <div *ngIf="movementForm.get('type').value === 'expenditure'">
-                <mat-form-field>
-                    <mat-label>Gasto</mat-label>
-                    <mat-select formControlName="selector">
-                      <mat-option *ngFor="let gasto of gastos" [value]="gasto">
-                        {{ gasto }}
-
+                      <mat-option *ngFor="let elemento of getArray(movementForm.get('type').value)" [value]="elemento">
+                        {{ elemento }}
                       </mat-option>
                     </mat-select>
                   </mat-form-field>
