@@ -42,6 +42,32 @@
           </mat-radio-group>
         </div>
       </div>
+      <div class="row">
+        <div class="col">
+            <hr>
+            <div *ngIf="movementForm.get('type').value === 'entry'">
+                <mat-form-field>
+                    <mat-label>Ingreso</mat-label>
+                    <mat-select>
+                      <mat-option *ngFor="let ingreso of ingresos" [value]="ingreso">
+                        {{ ingreso }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </div>
+            <div *ngIf="movementForm.get('type').value === 'expenditure'">
+                <mat-form-field>
+                    <mat-label>Gasto</mat-label>
+                    <mat-select>
+                      <mat-option *ngFor="let gasto of gastos" [value]="gasto">
+                        {{ gasto }}
+
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </div>
+        </div>
+      </div>
     </mat-card-content>
     <mat-card-actions>
       <button mat-raised-button color="primary" type="submit" [disabled]="!movementForm.valid">Submit</button>

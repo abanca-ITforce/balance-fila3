@@ -16,6 +16,9 @@ export class FormMovementComponent {
 
   // hasUnitNumber = false;
 
+  ingresos = ['ingreso1', 'ingreso2', 'ingreso3'];
+  gastos = ['gasto1', 'gasto2', 'gasto3'];
+
   states = [
     {name: 'Alabama', abbreviation: 'AL'}
   ];
