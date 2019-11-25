@@ -11,17 +11,14 @@ export class FormMovementComponent {
     date: [null, Validators.required],
     description: [null, [Validators.required, Validators.maxLength(30)]],
     amount: [null, [Validators.required, Validators.min(10)]],
-    type: [null, Validators.required]
+    type: [null, Validators.required],
+    selector: [null]
   });
 
-  // hasUnitNumber = false;
 
-  ingresos = ['ingreso1', 'ingreso2', 'ingreso3'];
-  gastos = ['gasto1', 'gasto2', 'gasto3'];
+  ingresos = ['Nómina', 'Alquiler', 'Participaciones Bankia'];
+  gastos = ['Comida', 'Gasolina', 'Cursos'];
 
-  states = [
-    {name: 'Alabama', abbreviation: 'AL'}
-  ];
 
   constructor(private formBuilder: FormBuilder) {}
 
