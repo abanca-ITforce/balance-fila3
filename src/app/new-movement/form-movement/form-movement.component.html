@@ -1,34 +1,50 @@
-<form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
+<form [formGroup]="movementForm" novalidate (ngSubmit)="onSubmit()">
   <mat-card class="shipping-card">
     <mat-card-header>
       <mat-card-title>Add a new movement</mat-card-title>
     </mat-card-header>
     <mat-card-content>
       <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Date" formControlName="date">
+            </mat-form-field>
+            <mat-error *ngIf="hasErrors('date') && isTouched('date')">Date is required!</mat-error>
+          </div>
+      </div>
+      <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput placeholder="Concept" formControlName="company">
+            <input matInput placeholder="Description" formControlName="description">
           </mat-form-field>
+          <mat-error *ngIf="hasErrors('description') && isTouched('description')">Description is required!</mat-error>
+          <div>
+              <mat-error *ngIf="hasError('description', 'maxlength')">Required caracters max 30</mat-error>
+          </div>
         </div>
       </div>
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput placeholder="Quantity" type="number" formControlName="company">
+            <input matInput placeholder="Amount" type="number" formControlName="amount">
           </mat-form-field>
+          <mat-error *ngIf="hasErrors('amount') && isTouched('amount')">Description is required!</mat-error>
+          <div>
+              <mat-error *ngIf="hasError('amount', 'min')">Minimum amount = 10</mat-error>
+          </div>
         </div>
       </div>
       <div class="row">
         <div class="col">
-          <mat-radio-group formControlName="shipping">
-            <mat-radio-button value="free">Entry</mat-radio-button>
-            <mat-radio-button value="priority">Expenditure</mat-radio-button>
+          <mat-radio-group formControlName="type">
+            <mat-radio-button value="entry">Entry</mat-radio-button>
+            <mat-radio-button value="expenditure">Expenditure</mat-radio-button>
           </mat-radio-group>
         </div>
       </div>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button color="primary" type="submit">Submit</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!movementForm.valid">Submit</button>
     </mat-card-actions>
   </mat-card>
 </form>
