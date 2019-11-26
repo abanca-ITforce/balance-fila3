@@ -2,5 +2,5 @@
   <!-- <a mat-list-item routerLink="pago-curso">Pagar curso de Angular</a>
   <a mat-list-item routerLink="pago-linea">Pagar linea azul para curso de Angular</a>
   <a mat-list-item routerLink="pago-participacion">Beneficios por participaciones en Abanca</a> -->
-  <a *ngFor="let movimiento of movimientos" mat-list-item routerLink="{{ movimiento.id }}">{{ movimiento.id}} - {{ movimiento.concepto}}</a>
+  <a *ngFor="let movement of movements; let i = index" mat-list-item [routerLink]="i">{{ movement.description}}</a>
 </mat-nav-list>

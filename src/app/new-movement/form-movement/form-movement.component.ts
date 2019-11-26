@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { MovementsService } from 'src/app/movements.service';
+import { FormsService } from 'src/app/forms.service';
 
 @Component({
   selector: 'bal-form-movement',
@@ -12,7 +14,7 @@ export class FormMovementComponent {
     description: [null, [Validators.required, Validators.maxLength(30)]],
     amount: [null, [Validators.required, Validators.min(10)]],
     type: [null, Validators.required],
-    selector: [null]
+    selector: [null, Validators.required]
   });
 
 
@@ -21,24 +23,25 @@ export class FormMovementComponent {
   expenditure = ['Comida', 'Gasolina', 'Cursos'];
 
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder,
+              private movementsService: MovementsService,
+              private formsService: FormsService) {}
 
   onSubmit() {
-    console.log(this.movementForm.value);
+    this.movementsService.postMovement(this.movementForm.value);
   }
 
   hasErrors(controlName: string) {
-    return this.movementForm.controls[controlName].invalid;
+    return this.formsService.hasErrors(this.movementForm, controlName);
   }
 
   isTouched(controlName: string) {
-    return this.movementForm.controls[controlName].touched;
-  }
+    return this.formsService.isTouched(this.movementForm, controlName);
+  }/** */
 
   hasError(controlName: string, errorName: string) {
-    const control = this.movementForm.controls[controlName];
-    return control.hasError(errorName);
-  }
+    return this.formsService.hasError(this.movementForm, controlName, errorName);
+  }/**/
 
   getArray(arrayName: string) {
     if (arrayName === 'entry') {

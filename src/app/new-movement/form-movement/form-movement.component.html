@@ -47,7 +47,8 @@
             <hr>
             <div>
                 <mat-form-field>
-                    <mat-label>{{ movementForm.get('type').value }}</mat-label>
+                  <br><br>
+                    <mat-label> Type of {{ movementForm.get('type').value }}</mat-label>
                     <mat-select formControlName="selector">
                       <mat-option *ngFor="let elemento of getArray(movementForm.get('type').value)" [value]="elemento">
                         {{ elemento }}
