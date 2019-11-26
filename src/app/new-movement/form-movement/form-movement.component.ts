@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MovementsService } from 'src/app/movements.service';
 import { FormsService } from 'src/app/forms.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'bal-form-movement',
@@ -25,10 +26,12 @@ export class FormMovementComponent {
 
   constructor(private formBuilder: FormBuilder,
               private movementsService: MovementsService,
-              private formsService: FormsService) {}
+              private formsService: FormsService,
+              private router: Router) {}
 
   onSubmit() {
     this.movementsService.postMovement(this.movementForm.value);
+    this.router.navigate(['/movements']);
   }
 
   hasErrors(controlName: string) {
