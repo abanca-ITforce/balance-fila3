@@ -1,17 +1,6 @@
-<div class="encabezado">
-  <div class="left">
-      Ingresos
-  </div>
-  <div class="right ingreso">
-      {{ totalIngresos }} €
-  </div>
-</div>
-
-<div class="encabezado">
-  <div class="left">
-      Gastos
-  </div>
-  <div class="right gasto">
-      {{ totalGastos }} €
-  </div>
-</div>
+<p>
+    <span [matBadge]="total" matBadgeOverlap="false">Text with a badge</span>
+</p>
+<mat-list role="list">
+    <mat-list-item *ngFor="let movement of movements" role="listitem">{{ movement.description }}</mat-list-item>
+</mat-list>
