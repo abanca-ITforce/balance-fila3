@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MovementsService } from 'src/app/movements.service';
 import { FormsService } from 'src/app/forms.service';
@@ -18,11 +18,12 @@ export class FormMovementComponent {
     selector: [null, Validators.required]
   });
 
-
+  dateForm: Date;
   seleccionador: string;
   entry = ['Nómina', 'Alquiler', 'Participaciones Bankia'];
   expenditure = ['Comida', 'Gasolina', 'Cursos'];
 
+  @Output() post = new EventEmitter<any>();
 
   constructor(private formBuilder: FormBuilder,
               private movementsService: MovementsService,
@@ -30,7 +31,10 @@ export class FormMovementComponent {
               private router: Router) {}
 
   onSubmit() {
-    this.movementsService.postMovement(this.movementForm.value);
+    // console.log(new Date(this.movementForm.get('date').value));
+    // this.dateForm = new Date(this.movementForm.get('date').value);
+    // this.movementsService.postMovement(this.movementForm.value);
+    this.post.emit(this.movementForm.value);
     this.router.navigate(['/movements']);
   }
 

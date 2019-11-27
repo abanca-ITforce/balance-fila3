@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MovementsService } from '../movements.service';
 
 @Component({
   selector: 'bal-new-movement',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewMovementComponent implements OnInit {
 
-  constructor() { }
+  constructor(private movementsService: MovementsService) { }
 
   ngOnInit() {
+  }
+
+  postTask(event: any) {
+    this.movementsService.postMovement(event);
   }
 
 }

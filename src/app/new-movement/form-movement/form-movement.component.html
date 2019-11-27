@@ -4,13 +4,22 @@
       <mat-card-title>Add a new movement</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <div class="row">
+      <!-- <div class="row">
           <div class="col">
             <mat-form-field class="full-width">
               <input matInput placeholder="Date" formControlName="date">
             </mat-form-field>
             <mat-error *ngIf="hasErrors('date') && isTouched('date')">Date is required!</mat-error>
           </div>
+      </div> -->
+      <div class="row">
+        <div class="col">
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
       </div>
       <div class="row">
         <div class="col">

@@ -10,6 +10,7 @@ import { MovementsService } from 'src/app/movements.service';
 export class MovementComponent implements OnInit {
   movement;
   id;
+  dateFormat: Date;
 
   constructor(activatedRoute: ActivatedRoute,
               private movementsService: MovementsService) {

@@ -11,7 +11,7 @@ export class MovementsService {
 
   postMovement(movement) {
     this.movements.push(movement);
-    console.log(this.movements);
+    // console.log(this.movements);
   }
 
   getMovement(id: number) {

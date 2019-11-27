@@ -8,8 +8,6 @@ import { MovementsService } from 'src/app/movements.service';
 })
 export class HomeComponent implements OnInit {
 
-  /* totalIngresos = 4559;
-  totalGastos = 3478; */
   movements = [];
   total: number;
 
