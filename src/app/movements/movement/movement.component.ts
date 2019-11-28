@@ -15,7 +15,8 @@ export class MovementComponent implements OnInit {
   constructor(activatedRoute: ActivatedRoute,
               private movementsService: MovementsService) {
     this.id = activatedRoute.snapshot.params.id;
-    this.movement = this.movementsService.getMovement(this.id);
+    // this.movement = this.movementsService.getMovement(this.id);
+    this.movementsService.getMovementById(this.id).subscribe(data => this.movement = data);
    }
 
   ngOnInit() {

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MovementsService } from 'src/app/movements.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'bal-home',
@@ -11,6 +12,8 @@ export class HomeComponent implements OnInit {
   movements: any[] = [];
   total: number;
 
+  movements$: Observable<any[]>;
+
   constructor(private movementsService: MovementsService) {
     this.movements = this.movementsService.movements;
     this.movementsService.getAllMovements().subscribe({
@@ -20,6 +23,7 @@ export class HomeComponent implements OnInit {
         console.log(this.movements);
       }
     });
+    // this.movements$ = this.movementsService.getAllMovements();
   }
 
   ngOnInit() {

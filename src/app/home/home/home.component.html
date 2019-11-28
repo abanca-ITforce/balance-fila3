@@ -1,6 +1,7 @@
 <p>
     <span [matBadge]="total" matBadgeOverlap="false">Text with a badge</span>
 </p>
+<!-- <mat-list role="list" *ngIf="movements$ | async as movements"> -->
 <mat-list role="list">
     <mat-list-item *ngFor="let movement of movements" role="listitem">{{ movement.description }}</mat-list-item>
 </mat-list>

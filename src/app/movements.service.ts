@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { tap, map } from 'rxjs/operators';
 
 
 @Injectable({
@@ -20,13 +21,17 @@ export class MovementsService {
      return this.http.get<any[]>(this.url);
   }
 
+  getMovementById(id) {
+    return this.http.get<any>(this.url + '/' + id);
+  }
+
   postMovement(movement) {
     this.movements.push(movement);
     // console.log(this.movements);
   }
 
   postTransaction(movement) {
-    this.http.post(this.url, movement).subscribe();
+    this.http.post(this.url, movement).subscribe(data => console.log(data));
   }
 
   getMovement(id: number) {
