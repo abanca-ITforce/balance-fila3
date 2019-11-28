@@ -7,9 +7,15 @@ import { MovementsService } from '../movements.service';
   styleUrls: ['./movements.component.css']
 })
 export class MovementsComponent implements OnInit {
-  movements = this.movementsService.movements;
+  // movements = this.movementsService.movements;
+  movements: any[] = [];
 
-  constructor(private movementsService: MovementsService) { }
+  constructor(private movementsService: MovementsService) {
+    this.movementsService.getAllMovements().subscribe(data => this.movements = data);
+
+    console.log('..');
+    console.log(this.movements);
+  }
 
   ngOnInit() {
   }

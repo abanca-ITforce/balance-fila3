@@ -8,12 +8,18 @@ import { MovementsService } from 'src/app/movements.service';
 })
 export class HomeComponent implements OnInit {
 
-  movements = [];
+  movements: any[] = [];
   total: number;
 
   constructor(private movementsService: MovementsService) {
     this.movements = this.movementsService.movements;
-    this.total = this.movements.length;
+    this.movementsService.getAllMovements().subscribe({
+      next: data => this.movements = data,
+      complete: () => {
+        this.total = this.movements.length;
+        console.log(this.movements);
+      }
+    });
   }
 
   ngOnInit() {

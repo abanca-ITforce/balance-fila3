@@ -14,7 +14,8 @@ export class NewMovementComponent implements OnInit {
   }
 
   postTask(event: any) {
-    this.movementsService.postMovement(event);
+    // this.movementsService.postMovement(event);
+    this.movementsService.postTransaction(event);
   }
 
 }
